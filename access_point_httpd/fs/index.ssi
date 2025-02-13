@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data and Controls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
+        .data-display, .controls {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .data-display h3, .controls h3 {
+            margin-top: 0;
+        }
+        .data-display p, .controls p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+        .controls form {
+            margin: 10px 0;
+        }
+        .config-form input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Data Display Section -->
+        <div class="data-display">
+            <h2>Sensor Data</h2>
+            <p><strong>Room Humidity:</strong> <!--#r_hum-->%</p>
+            <p><strong>Room Temperature:</strong> <!--#r_temp-->°C</p>
+            <p><strong>Water Temperature:</strong> <!--#w_temp-->°C</p>
+            <p><strong>Soil Moisture:</strong> <!--#moist-->%</p>
+        </div>
+        
+        <!-- Controls Section -->
+        <div class="controls">
+            <h2>Device Configuration</h2>
+            <form class="config-form" method="POST">
+                <label for="ssid">Wi-Fi SSID:</label>
+                <input type="text" id="ssid" name="wifi_ssid" placeholder="Enter SSID (optional)" maxlength="32">
+
+                <label for="password">Wi-Fi Password:</label>
+                <input type="password" id="password" name="wifi_pass" placeholder="Enter Password (optional)" maxlength="63">
+
+                <label for="mqtt_host">MQTT Broker Hostname:</label>
+                <input type="text" id="mqtt_host" name="tls_mqtt_broker_hostname" placeholder="Enter Broker Hostname (optional)" maxlength="199">
+
+                <label for="mqtt_port">MQTT Broker Port:</label>
+                <input type="text" id="mqtt_port" name="tls_mqtt_broker_port" placeholder="Enter Port (optional)" maxlength="5" pattern="[0-9]*">
+
+                <label for="mqtt_cn">MQTT Common Name:</label>
+                <input type="text" id="mqtt_cn" name="tls_mqtt_broker_CN" placeholder="Enter Common Name (optional)" maxlength="199">
+
+                <label for="client_id">MQTT Client ID:</label>
+                <input type="text" id="client_id" name="tls_mqtt_client_id" placeholder="Enter Client ID (optional)" maxlength="99">
+
+                <label for="client_name">MQTT Client Name:</label>
+                <input type="text" id="client_name" name="tls_mqtt_client_name" placeholder="Enter Client Name (optional)" maxlength="99">
+
+                <label for="client_pass">MQTT Client Password:</label>
+                <input type="password" id="client_pass" name="tls_mqtt_client_password" placeholder="Enter Client Password (optional)" maxlength="99">
+
+                <button type="submit">Save Settings</button>
+                <button type="reset">Discard</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
